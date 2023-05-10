@@ -75,5 +75,26 @@ public class MainActivityTest {
         onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click()); //Check the content on the list - no content in this case
         Espresso.pressBack(); //Back button
     }
+    @Test
+    public void uitest()
+    {
+        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka"));
+        onView(withId(R.id.button_confirm)).perform(click());
+        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Sylhet"));
+        onView(withId(R.id.button_confirm)).perform(click());
+        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Chittagong"));
+        onView(withId(R.id.button_confirm)).perform(click());
+        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Khulna"));
+        onView(withId(R.id.button_confirm)).perform(click());
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(1).perform(click());
+        onView(withId(R.id.show)).check(matches(isDisplayed()));
+        onView(withText("Sylhet")).check(matches(isDisplayed()));
+        onView(withId(R.id.btn)).perform(click());
+        onView(withId(R.id.pkd)).check(matches(isDisplayed()));
+    }
 
 }
